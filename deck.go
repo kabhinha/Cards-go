@@ -16,7 +16,7 @@ Crete a new type deck
 
 type deck []string
 
-func NewDeck() deck {
+func newDeck() deck {
 	cards := deck{}
 	suits := []string{
 		"spades",
@@ -48,11 +48,11 @@ func (d deck) toString() string {
 	return strings.Join([]string(d), " , ")
 }
 
-func (d deck) SaveToFile(filename string) error {
+func (d deck) saveToFile(filename string) error {
 	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }
 
-func DeckFromFile(d deck, file string) deck {
+func deckFromFile(d deck, file string) deck {
 	dby, err := ioutil.ReadFile(file)
 	if err != nil {
 		fmt.Println("Error: ", err)
